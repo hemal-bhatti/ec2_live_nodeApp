@@ -7,14 +7,14 @@ app.use(express.json())
 
 app.get('/',  (req,res) => {
     // res.send("yes it is working ")
-    // const [result] = await pool.query(`select * from users;`)
-    // console.log(result);
-    // const respone = await result.json();
+    const [result] = await pool.query(`select * from app_db.users;`)
+    console.log(result);
+    const respone = await result.json();
 
-    // console.log(respone);
+    console.log(respone);
 
     res.json({
-      // data : result,
+      data : result,
       msg : "Hello, Yes it's working!"
     })
 })
