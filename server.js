@@ -5,18 +5,18 @@ const port = 3005;
 
 app.use(express.json())
 
-app.get('/', async (req,res) => {
-    // res.send("hellosdf")
-    const [result] = await pool.query(`select * from users;`)
-    console.log(result);
-    // const respone = await result.json();
+app.get('/',  (req,res) => {
+    res.send("yes it is working ")
+    // const [result] = await pool.query(`select * from users;`)
+    // console.log(result);
+    // // const respone = await result.json();
 
-    // console.log(respone);
+    // // console.log(respone);
 
-    res.json({
-      data : result,
-      msg : "yes, it's working "
-    })
+    // res.json({
+    //   data : result,
+    //   msg : "yes, it's working "
+    // })
 })
 
 app.post('/signUp',async (req, res) => {
