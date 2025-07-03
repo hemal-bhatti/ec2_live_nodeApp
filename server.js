@@ -5,7 +5,7 @@ const port = 3005;
 
 app.use(express.json())
 
-app.get('/',  (req,res) => {
+app.get('/',  async (req,res) => {
     // res.send("yes it is working ")
     const [result] = await pool.query(`select * from app_db.users;`)
     console.log(result);
