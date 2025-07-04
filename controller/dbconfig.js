@@ -8,4 +8,22 @@ const pool = mysql.createPool({
   port: 3306
 });
 
+if(pool){
+  pool.query(
+    `CREATE TABLE "users" (
+  "id" int NOT NULL auto_increment primary key,
+  "username" varchar(255) NOT NULL,
+  "password" varchar(255) NOT NULL,
+  "created_at" timestamp NULL DEFAULT CURRENT_TIMESTAMP);`
+  );
+
+  pool.query(`
+    INSERT INTO "users" ("id", "username", "password", "created_at") VALUES
+      (1, 'Hemal', '1234', '2025-05-28 13:30:15'),
+      (2, 'meet', '1234', '2025-05-28 13:31:04');
+  `);
+
+}
+
+
 module.exports = pool;
